@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hatim Drif — Creative Full Stack & Mobile Developer</title>
+  <meta name="description" content="Portfolio of Hatim Drif, a creative full stack and mobile developer crafting premium digital products, mobile applications, and brand identities based in Morocco.">
+  <meta name="author" content="Hatim Drif">
+  <meta name="theme-color" content="#080808">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hatim Drif — Creative Full Stack & Mobile Developer">
+  <meta property="og:description" content="Building high-performance mobile apps, web applications, and visual identities with purpose and precision.">
+  <meta property="og:image" content="assets/images/profile.PNG">
+  <link rel="icon" type="image/png" href="assets/images/casrologo.png">
+  <link rel="apple-touch-icon" href="assets/images/casrologo.png">
+  <link rel="preload" as="image" href="assets/images/casrologo.png">
+  <link rel="preload" as="image" href="assets/images/profile.PNG">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="home-top">
+
+  <!-- Premium Page Transition Overlay -->
+  <div class="page-transition" id="page-transition" aria-hidden="true">
+    <div class="page-transition-content">
+      <img src="assets/images/casrologo.png" alt="CASRO" class="page-transition-logo">
+      <span class="page-transition-title">CASRO</span>
+      <div class="page-transition-spinner"><div class="page-transition-bar"></div></div>
+    </div>
+  </div>
+
+  <!-- Session Intro Loading Screen Overlay -->
+  <div class="intro-screen" id="intro-screen" aria-hidden="true">
+    <div class="intro-content">
+      <div class="intro-logo-wrapper">
+        <img src="assets/images/casrologo.png" alt="casrologo" class="intro-casrologo">
+      </div>
+      <div class="intro-progress-line">
+        <div class="intro-progress-fill"></div>
+      </div>
+      <span class="intro-subtext">HATIM DRIF PORTFOLIO · 2026</span>
+    </div>
+  </div>
+
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"><span class="cursor-text" id="cursor-text"></span></div>
+  <div class="cursor-dot"  id="cursor-dot"  aria-hidden="true"></div>
+
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress-fill" id="scroll-progress-fill"></div>
+  </div>
+
+  <!-- NAV -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="#home-top" class="nav-logo magnetic" aria-label="Hatim Drif — Home">
+        <img src="assets/images/casrologo.png" alt="casrologo" class="logo-img">
+        <span class="logo-text">CASRO</span>
+      </a>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#home-top" class="nav-link active" data-nav="home">HOME</a></li>
+        <li><a href="#work"     class="nav-link" data-nav="work">PROJECTS</a></li>
+        <li><a href="casro/index.html" class="nav-link casro-transition-link" data-cursor-label="Brand">CASRO</a></li>
+        <li><a href="#contact"  class="nav-link" data-nav="contact">CONTACT</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#contact" class="nav-cta magnetic" data-cursor-label="Talk">
+          <span>Let's Talk</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <button class="burger" id="burger-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="burger-line"></span><span class="burger-line"></span>
+        </button>
+      </div>
+    </nav>
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <div class="mobile-nav-inner">
+        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation">✕</button>
+        <ul role="list">
+          <li><a href="#home-top" class="mobile-nav-link">HOME</a></li>
+          <li><a href="#work"     class="mobile-nav-link">PROJECTS</a></li>
+          <li><a href="casro/index.html" class="mobile-nav-link casro-transition-link">CASRO</a></li>
+          <li><a href="#contact"  class="mobile-nav-link">CONTACT</a></li>
+        </ul>
+        <div class="mobile-nav-footer">
+          <a href="mailto:hello@hatim.dev">hello@hatim.dev</a>
+          <span>Based in Morocco</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section id="hero" class="hero" aria-label="Hero Introduction">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/images/profile.PNG" alt="" class="hero-img" id="hero-img" fetchpriority="high">
+        <div class="hero-vignette"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-brand-mark reveal" data-reveal>
+          <img src="assets/images/casrologo.png" alt="casrologo" class="hero-casrologo">
+        </div>
+        <div class="hero-eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>PORTFOLIO · 2026</span>
+          <span class="eyebrow-sep">·</span>
+          <span>MOROCCO</span>
+        </div>
+        <h1 class="hero-name">
+          <span class="hero-name-line" data-reveal>HATIM</span>
+          <span class="hero-name-line hero-name-outline" data-reveal>DRIF</span>
+        </h1>
+        <div class="hero-role">
+          <span class="role-prefix">I am a&thinsp;</span>
+          <div class="role-rotator" id="role-rotator" aria-live="polite">
+            <span class="role-item active">Mobile &amp; Full Stack Developer</span>
+            <span class="role-item">Creative Full Stack Developer</span>
+            <span class="role-item">React Native Engineer</span>
+            <span class="role-item">Laravel API Architect</span>
+          </div>
+        </div>
+        <p class="hero-desc">Crafting high-performance mobile apps, web experiences,<br>and visual identities with precision and restraint.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn-primary magnetic" data-cursor-label="View">View Projects <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H5M13 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="casro/index.html" class="btn-secondary magnetic casro-transition-link" data-cursor-label="CASRO">Explore CASRO</a>
+          <a href="#" class="btn-secondary magnetic" id="download-cv-btn" data-cursor-label="Download">Download CV</a>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-status">
+            <span class="status-dot"></span>
+            <span>Available for select projects</span>
+          </div>
+          <a href="#about" class="hero-scroll-cue" aria-label="Scroll down"><span>SCROLL</span><span class="scroll-arrow">↓</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ ABOUT ═══════════════ -->
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label">01 / THE STORY</span>
+          <h2 id="about-heading" class="section-title">CREATIVE ENGINEERING<br>&amp; VISUAL INTENT.</h2>
+        </header>
+        <div class="about-grid">
+          <div class="about-visual reveal">
+            <div class="portrait-card" data-cursor-label="Morocco">
+              <img src="assets/images/hero-mountain.png" alt="Hatim Drif in Morocco" class="portrait-img">
+              <div class="portrait-overlay"><strong>Hatim Drif</strong><span>Based in Morocco</span></div>
+            </div>
+            <div class="edu-badge reveal">
+              <span class="edu-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+              </span>
+              <div><strong>OFPPT Mobile Development</strong><span>Specialized Technical Training</span></div>
+            </div>
+          </div>
+          <div class="about-narrative">
+            <blockquote class="about-quote reveal">"I turn ideas into functional, performant, and visually memorable digital experiences."</blockquote>
+            <p class="about-text reveal">My work sits at the intersection of software engineering and visual design. Rather than treating code and aesthetics as separate disciplines, I build web and mobile applications where clean architecture and user experience reinforce each other.</p>
+            <p class="about-text reveal">Whether architecting full-stack database platforms like <strong>MediQueue</strong>, engineering interactive digital products like <strong>MANILLA</strong>, or building intuitive mobile interfaces with <strong>React Native &amp; Expo</strong>, I focus on performance, usability, and precision.</p>
+            <div class="pillars reveal">
+              <div class="pillar"><h3>Mobile &amp; Web Engineering</h3><p>Building robust apps with React Native, PHP/Laravel REST APIs, Sanctum authentication, and MySQL.</p></div>
+              <div class="pillar"><h3>Creative Direction &amp; UI/UX</h3><p>Designing high-contrast minimal interfaces, custom typography, brand identities, and fluid motion systems.</p></div>
+            </div>
+            <div class="keyword-cloud reveal">
+              <span>React Native</span><span>Laravel APIs</span><span>PHP &amp; MySQL</span>
+              <span>Full Stack</span><span>UI/UX Design</span><span>Morocco</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ WORK ═══════════════ -->
+    <section id="work" class="section" aria-labelledby="work-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label">02 / FEATURED PROJECTS</span>
+          <h2 id="work-heading" class="section-title">CAMPAIGNS &amp;<br>CASE STUDIES.</h2>
+          <p class="section-subtitle">A curated selection of mobile platforms, web applications, and digital systems.</p>
+        </header>
+      </div>
+
+      <!-- Project 01: MediQueue -->
+      <article class="project-row reveal" data-project-id="mediqueue">
+        <div class="container project-inner">
+          <div class="project-media">
+            <div class="project-media-wrap" data-cursor-label="View Case">
+              <img src="assets/images/hero-studio.png" alt="MediQueue" class="project-img" loading="lazy">
+              <div class="project-img-overlay"></div>
+              <span class="project-num" aria-hidden="true">01</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta"><span class="project-cat">Healthcare · Mobile Systems</span><span class="project-year">2024</span></div>
+            <h3 class="project-name">MediQueue</h3>
+            <p class="project-desc">A clinic queue management and patient workflow platform designed to streamline appointments, eliminate overcrowding, and optimize multi-clinic schedules with real-time updates.</p>
+            <ul class="feature-list">
+              <li>Real-time patient queue management</li>
+              <li>Multi-clinic scheduling system</li>
+              <li>Sanctum-authenticated REST API</li>
+              <li>Cross-platform React Native client</li>
+            </ul>
+            <div class="tech-pills"><span>PHP</span><span>Laravel</span><span>React Native</span><span>MySQL</span><span>REST API</span><span>Sanctum</span></div>
+            <div class="project-actions">
+              <button class="btn-case magnetic open-modal" data-project="mediqueue" data-cursor-label="Details">Project Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 02: MANILLA -->
+      <article class="project-row project-row-alt reveal" data-project-id="manilla">
+        <div class="container project-inner">
+          <div class="project-media">
+            <div class="project-media-wrap" data-cursor-label="View Case">
+              <img src="assets/images/profile2.PNG" alt="MANILLA Digital Product" class="project-img" loading="lazy">
+              <div class="project-img-overlay"></div>
+              <span class="project-num" aria-hidden="true">02</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta"><span class="project-cat">Digital Product · App</span><span class="project-year">2025</span></div>
+            <h3 class="project-name">MANILLA App</h3>
+            <p class="project-desc">A mobile-first digital product interface engineered for intuitive content discovery, fluid UI transitions, and modular frontend components built for scale.</p>
+            <ul class="feature-list">
+              <li>Custom UI transition framework</li>
+              <li>Mobile-first responsive design</li>
+              <li>Modular component architecture</li>
+              <li>REST API data integration</li>
+            </ul>
+            <div class="tech-pills"><span>JavaScript</span><span>React</span><span>REST API</span><span>Design System</span></div>
+            <div class="project-actions">
+              <button class="btn-case magnetic open-modal" data-project="manilla" data-cursor-label="Details">Project Details <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ═══════════════ SKILLS ═══════════════ -->
+    <section id="skills" class="section" aria-labelledby="skills-heading">
+      <div class="ticker-wrap" aria-hidden="true">
+        <div class="ticker-track">
+          <div class="ticker-slide"><span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i><span>JAVASCRIPT</span><i>✦</i><span>REACT NATIVE</span><i>✦</i><span>EXPO</span><i>✦</i><span>PHP</span><i>✦</i><span>LARAVEL</span><i>✦</i><span>MYSQL</span><i>✦</i><span>REST API</span><i>✦</i><span>FIGMA</span><i>✦</i><span>ILLUSTRATOR</span><i>✦</i><span>PHOTOSHOP</span><i>✦</i></div>
+          <div class="ticker-slide" aria-hidden="true"><span>HTML5</span><i>✦</i><span>CSS3</span><i>✦</i><span>JAVASCRIPT</span><i>✦</i><span>REACT NATIVE</span><i>✦</i><span>EXPO</span><i>✦</i><span>PHP</span><i>✦</i><span>LARAVEL</span><i>✦</i><span>MYSQL</span><i>✦</i><span>REST API</span><i>✦</i><span>FIGMA</span><i>✦</i><span>ILLUSTRATOR</span><i>✦</i><span>PHOTOSHOP</span><i>✦</i></div>
+        </div>
+      </div>
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label">03 / SKILLS &amp; ARCHITECTURE</span>
+          <h2 id="skills-heading" class="section-title">TECHNICAL STACK<br>&amp; CAPABILITIES.</h2>
+          <p class="section-subtitle">Structured expertise across web engineering, mobile development, backend APIs, and design tools.</p>
+        </header>
+        <div class="filter-tabs reveal" role="tablist" aria-label="Skill category filters">
+          <button class="filter-tab active" data-filter="all"      role="tab" aria-selected="true">All Stack</button>
+          <button class="filter-tab"        data-filter="frontend" role="tab" aria-selected="false">Frontend</button>
+          <button class="filter-tab"        data-filter="mobile"   role="tab" aria-selected="false">Mobile</button>
+          <button class="filter-tab"        data-filter="backend"  role="tab" aria-selected="false">Backend</button>
+          <button class="filter-tab"        data-filter="tools"    role="tab" aria-selected="false">Design &amp; Tools</button>
+        </div>
+        <div class="skills-grid" id="skills-grid">
+          <div class="skill-card reveal" data-cat="frontend"><div class="skill-card-top"><span class="skill-cat-label">FRONTEND</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span></div><h3>HTML5 / Modern CSS</h3><p>Semantic HTML5, CSS custom properties, grid/flexbox, fluid typography with clamp(), and responsive layout systems.</p><div class="skill-tags"><span>HTML5</span><span>CSS3</span><span>Animations</span></div></div>
+          <div class="skill-card reveal" data-cat="frontend"><div class="skill-card-top"><span class="skill-cat-label">FRONTEND</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.32 11.32l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg></span></div><h3>JavaScript &amp; React</h3><p>Vanilla ES6+ JS, DOM manipulation, asynchronous APIs, React component structures, and state management patterns.</p><div class="skill-tags"><span>ES6+</span><span>React</span><span>DOM APIs</span></div></div>
+          <div class="skill-card reveal" data-cat="mobile"><div class="skill-card-top"><span class="skill-cat-label">MOBILE</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span></div><h3>React Native &amp; Expo</h3><p>Cross-platform mobile application development for iOS and Android with native UI component syncing and custom navigation.</p><div class="skill-tags"><span>React Native</span><span>Expo CLI</span><span>Mobile UI</span></div></div>
+          <div class="skill-card reveal" data-cat="backend"><div class="skill-card-top"><span class="skill-cat-label">BACKEND</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span></div><h3>PHP &amp; Laravel Framework</h3><p>Secure backend architectures, MVC patterns, Eloquent ORM, middleware routing, and Sanctum authentication systems.</p><div class="skill-tags"><span>PHP</span><span>Laravel</span><span>MVC</span></div></div>
+          <div class="skill-card reveal" data-cat="backend"><div class="skill-card-top"><span class="skill-cat-label">BACKEND</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg></span></div><h3>MySQL &amp; RESTful APIs</h3><p>Relational database schema design, normalized SQL tables, REST API endpoint creation, and JSON data serialization.</p><div class="skill-tags"><span>MySQL</span><span>REST API</span><span>Sanctum</span></div></div>
+          <div class="skill-card reveal" data-cat="tools"><div class="skill-card-top"><span class="skill-cat-label">DESIGN &amp; TOOLS</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.03743 19.1789 5.09262 19.4445 4.99616 19.682C4.70617 20.3957 4.54 21.1787 4.54 22C4.54 22 7.5 22 12 22Z"/><circle cx="7.5" cy="10.5" r="1.5"/><circle cx="11.5" cy="7.5" r="1.5"/><circle cx="16.5" cy="9.5" r="1.5"/></svg></span></div><h3>Figma &amp; Brand Design</h3><p>UI design, interactive prototyping, wireframing, fashion apparel graphics, and comprehensive typography systems.</p><div class="skill-tags"><span>Figma</span><span>UI Design</span><span>Prototyping</span></div></div>
+          <div class="skill-card reveal" data-cat="tools"><div class="skill-card-top"><span class="skill-cat-label">DESIGN &amp; TOOLS</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span></div><h3>Git, Illustrator &amp; Photoshop</h3><p>Version control workflows, Git branch strategies, vector artwork, and promotional graphic rendering at production quality.</p><div class="skill-tags"><span>Git</span><span>GitHub</span><span>Illustrator</span><span>Photoshop</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ JOURNEY ═══════════════ -->
+    <section id="journey" class="section" aria-labelledby="journey-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label">04 / DEVELOPMENT JOURNEY</span>
+          <h2 id="journey-heading" class="section-title">THE MILESTONES<br>&amp; PATH.</h2>
+          <p class="section-subtitle">Chronological timeline of education, software projects, and creative brand development.</p>
+        </header>
+        <ol class="timeline" aria-label="Career timeline">
+          <li class="timeline-item reveal"><div class="tl-year">2022</div><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Web Development Foundations</h3><p>Started a self-directed deep dive into core web technology — semantic HTML5, CSS layout systems, and modern JavaScript programming.</p></div></li>
+          <li class="timeline-item reveal"><div class="tl-year">2023</div><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>OFPPT Mobile Development Specialization</h3><p>Enrolled in specialized technical training at OFPPT in Morocco, mastering mobile development architectures, database modeling, and cross-platform app frameworks.</p></div></li>
+          <li class="timeline-item reveal"><div class="tl-year">2024</div><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Engineered MediQueue System</h3><p>Designed and developed MediQueue — a full-stack patient queue and clinic appointment management platform leveraging PHP/Laravel and React Native.</p></div></li>
+          <li class="timeline-item reveal"><div class="tl-year">2024</div><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Founded CASRO Clothing Brand</h3><p>Merged fashion creative direction with web design to launch CASRO — designing streetwear garments, apparel graphics, and brand identity assets.</p></div></li>
+          <li class="timeline-item reveal"><div class="tl-year">2025</div><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Built MANILLA Application Platform</h3><p>Created MANILLA, expanding digital product engineering capabilities with custom UI transition frameworks and responsive component architecture.</p></div></li>
+          <li class="timeline-item reveal"><div class="tl-year">Present</div><div class="tl-dot tl-dot-active" aria-hidden="true"></div><div class="tl-body"><h3>Creative Technology &amp; Mobile Engineering</h3><p>Continuing to build digital products, high-grade mobile applications, and visual identities for select clients and independent projects worldwide.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label">05 / GET IN TOUCH</span>
+          <h2 id="contact-heading" class="contact-headline reveal">LET'S BUILD<br>SOMETHING<br><em>AMAZING.</em></h2>
+          <p class="section-subtitle">Have a mobile app, web project, or digital product in mind? Let's talk.</p>
+        </header>
+        <div class="contact-layout">
+          <div class="contact-channels reveal">
+            <div class="contact-channel">
+              <span class="channel-label">DIRECT EMAIL</span>
+              <a href="mailto:hello@hatim.dev" class="channel-value magnetic" data-cursor-label="Email">hello@hatim.dev <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H5M13 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+            </div>
+            <div class="contact-channel">
+              <span class="channel-label">SOCIALS</span>
+              <div class="social-links">
+                <a href="https://github.com"    target="_blank" rel="noreferrer noopener" class="social-link magnetic" data-cursor-label="GitHub">GitHub ↗</a>
+                <a href="https://linkedin.com"  target="_blank" rel="noreferrer noopener" class="social-link magnetic" data-cursor-label="LinkedIn">LinkedIn ↗</a>
+                <a href="https://instagram.com" target="_blank" rel="noreferrer noopener" class="social-link magnetic" data-cursor-label="Instagram">Instagram ↗</a>
+                <a href="https://wa.me/"        target="_blank" rel="noreferrer noopener" class="social-link magnetic" data-cursor-label="WhatsApp">WhatsApp ↗</a>
+              </div>
+            </div>
+            <div class="contact-channel">
+              <span class="channel-label">CURRICULUM VITAE</span>
+              <a href="#" class="btn-cv magnetic" id="download-cv-btn" data-cursor-label="Download">Download Résumé / CV <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V10M7 10L3 6M7 10L11 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+          <div class="contact-form-wrap reveal">
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="field-group"><label for="f-name">YOUR NAME</label><input type="text" id="f-name" name="name" required autocomplete="name" placeholder="What's your name?"></div>
+              <div class="field-group"><label for="f-email">YOUR EMAIL</label><input type="email" id="f-email" name="email" required autocomplete="email" placeholder="How can I reach you?"></div>
+              <div class="field-group"><label for="f-message">PROJECT DETAILS</label><textarea id="f-message" name="message" rows="5" required placeholder="Tell me about your project or idea..."></textarea></div>
+              <button type="submit" class="btn-submit magnetic" data-cursor-label="Send">Send Message <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H5M13 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+              <p class="form-response" id="form-response" aria-live="polite" role="status"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <a href="#home-top" class="footer-logo magnetic" aria-label="Hatim Drif — Home">
+          <img src="assets/images/casrologo.png" alt="casrologo" class="footer-logo-img">
+        </a>
+        <div class="footer-text-group">
+          <strong>Hatim Drif</strong>
+          <span>Mobile &amp; Full Stack Developer</span>
+        </div>
+      </div>
+      <div class="footer-center"><span>Based in Morocco · Working Worldwide</span><span class="footer-copy">© <span id="footer-year">2026</span> Hatim Drif. All rights reserved.</span></div>
+      <div class="footer-right"><a href="#home-top" class="back-top magnetic" data-cursor-label="Top">Back to Top ↑</a></div>
+    </div>
+  </footer>
+
+  <!-- Floating Brand Watermark -->
+  <div class="brand-watermark" aria-hidden="true">
+    <img src="assets/images/casrologo.png" alt="" class="watermark-logo-img">
+  </div>
+
+  <!-- MODAL -->
+  <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close modal"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M1 1L17 17M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

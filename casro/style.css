@@ -1,0 +1,17 @@
+/* ============================================================
+   CASRO BRAND HOUSE — EXTENDED STYLESHEET (2026)
+   Extends root design system tokens and visual identity
+   ============================================================ */
+
+/* Additional CASRO Page Specific Fine-Tuning */
+#casro-top {
+  background: var(--bg-base);
+}
+
+.casro-brand-header {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.casro-hero-badge {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
