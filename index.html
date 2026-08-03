@@ -11,11 +11,11 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Hatim Drif — Creative Full Stack & Mobile Developer">
   <meta property="og:description" content="Building high-performance mobile apps, web applications, and visual identities with purpose and precision.">
-  <meta property="og:image" content="assets/images/profile.PNG">
-  <link rel="icon" type="image/png" href="assets/images/casrologo.png">
-  <link rel="apple-touch-icon" href="assets/images/casrologo.png">
-  <link rel="preload" as="image" href="assets/images/casrologo.png">
-  <link rel="preload" as="image" href="assets/images/profile.PNG">
+  <meta property="og:image" content="./assets/images/profile.png">
+  <link rel="icon" type="image/png" href="./assets/images/casrologo.png">
+  <link rel="apple-touch-icon" href="./assets/images/casrologo.png">
+  <link rel="preload" as="image" href="./assets/images/casrologo.png">
+  <link rel="preload" as="image" href="./assets/images/profile.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   <!-- Premium Page Transition Overlay -->
   <div class="page-transition" id="page-transition" aria-hidden="true">
     <div class="page-transition-content">
-      <img src="assets/images/casrologo.png" alt="CASRO" class="page-transition-logo">
+      <img src="./assets/images/casrologo.png" alt="CASRO" class="page-transition-logo">
       <span class="page-transition-title">CASRO</span>
       <div class="page-transition-spinner"><div class="page-transition-bar"></div></div>
     </div>
@@ -37,7 +37,7 @@
   <div class="intro-screen" id="intro-screen" aria-hidden="true">
     <div class="intro-content">
       <div class="intro-logo-wrapper">
-        <img src="assets/images/casrologo.png" alt="casrologo" class="intro-casrologo">
+        <img src="./assets/images/casrologo.png" alt="casrologo" class="intro-casrologo">
       </div>
       <div class="intro-progress-line">
         <div class="intro-progress-fill"></div>
@@ -57,7 +57,7 @@
   <header class="site-header" id="site-header">
     <nav class="nav-inner" aria-label="Main navigation">
       <a href="#home-top" class="nav-logo magnetic" aria-label="Hatim Drif — Home">
-        <img src="assets/images/casrologo.png" alt="casrologo" class="logo-img">
+        <img src="./assets/images/casrologo.png" alt="casrologo" class="logo-img">
         <span class="logo-text">CASRO</span>
       </a>
       <ul class="nav-links" id="nav-links" role="list">
@@ -98,12 +98,12 @@
     <!-- ═══════════════ HERO ═══════════════ -->
     <section id="hero" class="hero" aria-label="Hero Introduction">
       <div class="hero-media" aria-hidden="true">
-        <img src="assets/images/profile.PNG" alt="" class="hero-img" id="hero-img" fetchpriority="high">
+        <img src="./assets/images/profile.png" alt="Hatim Drif" class="hero-img" id="hero-img" fetchpriority="high" onerror="this.onerror=null;this.src='./assets/images/profile.PNG'">
         <div class="hero-vignette"></div>
       </div>
       <div class="hero-content">
         <div class="hero-brand-mark reveal" data-reveal>
-          <img src="assets/images/casrologo.png" alt="casrologo" class="hero-casrologo">
+          <img src="./assets/images/casrologo.png" alt="casrologo" class="hero-casrologo">
         </div>
         <div class="hero-eyebrow">
           <span class="eyebrow-dot"></span>
@@ -150,7 +150,7 @@
         <div class="about-grid">
           <div class="about-visual reveal">
             <div class="portrait-card" data-cursor-label="Morocco">
-              <img src="assets/images/hero-mountain.png" alt="Hatim Drif in Morocco" class="portrait-img">
+              <img src="./assets/images/hero-mountain.png" alt="Hatim Drif in Morocco" class="portrait-img">
               <div class="portrait-overlay"><strong>Hatim Drif</strong><span>Based in Morocco</span></div>
             </div>
             <div class="edu-badge reveal">
@@ -192,7 +192,7 @@
         <div class="container project-inner">
           <div class="project-media">
             <div class="project-media-wrap" data-cursor-label="View Case">
-              <img src="assets/images/hero-studio.png" alt="MediQueue" class="project-img" loading="lazy">
+              <img src="./assets/images/hero-studio.png" alt="MediQueue" class="project-img" loading="lazy">
               <div class="project-img-overlay"></div>
               <span class="project-num" aria-hidden="true">01</span>
             </div>
@@ -220,7 +220,7 @@
         <div class="container project-inner">
           <div class="project-media">
             <div class="project-media-wrap" data-cursor-label="View Case">
-              <img src="assets/images/profile2.PNG" alt="MANILLA Digital Product" class="project-img" loading="lazy">
+              <img src="./assets/images/profile2.PNG" alt="MANILLA Digital Product" class="project-img" loading="lazy">
               <div class="project-img-overlay"></div>
               <span class="project-num" aria-hidden="true">02</span>
             </div>
@@ -269,7 +269,7 @@
           <div class="skill-card reveal" data-cat="frontend"><div class="skill-card-top"><span class="skill-cat-label">FRONTEND</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span></div><h3>HTML5 / Modern CSS</h3><p>Semantic HTML5, CSS custom properties, grid/flexbox, fluid typography with clamp(), and responsive layout systems.</p><div class="skill-tags"><span>HTML5</span><span>CSS3</span><span>Animations</span></div></div>
           <div class="skill-card reveal" data-cat="frontend"><div class="skill-card-top"><span class="skill-cat-label">FRONTEND</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.32 11.32l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg></span></div><h3>JavaScript &amp; React</h3><p>Vanilla ES6+ JS, DOM manipulation, asynchronous APIs, React component structures, and state management patterns.</p><div class="skill-tags"><span>ES6+</span><span>React</span><span>DOM APIs</span></div></div>
           <div class="skill-card reveal" data-cat="mobile"><div class="skill-card-top"><span class="skill-cat-label">MOBILE</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span></div><h3>React Native &amp; Expo</h3><p>Cross-platform mobile application development for iOS and Android with native UI component syncing and custom navigation.</p><div class="skill-tags"><span>React Native</span><span>Expo CLI</span><span>Mobile UI</span></div></div>
-          <div class="skill-card reveal" data-cat="backend"><div class="skill-card-top"><span class="skill-cat-label">BACKEND</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span></div><h3>PHP &amp; Laravel Framework</h3><p>Secure backend architectures, MVC patterns, Eloquent ORM, middleware routing, and Sanctum authentication systems.</p><div class="skill-tags"><span>PHP</span><span>Laravel</span><span>MVC</span></div></div>
+          <div class="skill-card reveal" data-cat="backend"><div class="skill-card-top"><span class="skill-cat-label">BACKEND</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06.06a1.65 1.65 0 0033-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span></div><h3>PHP &amp; Laravel Framework</h3><p>Secure backend architectures, MVC patterns, Eloquent ORM, middleware routing, and Sanctum authentication systems.</p><div class="skill-tags"><span>PHP</span><span>Laravel</span><span>MVC</span></div></div>
           <div class="skill-card reveal" data-cat="backend"><div class="skill-card-top"><span class="skill-cat-label">BACKEND</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg></span></div><h3>MySQL &amp; RESTful APIs</h3><p>Relational database schema design, normalized SQL tables, REST API endpoint creation, and JSON data serialization.</p><div class="skill-tags"><span>MySQL</span><span>REST API</span><span>Sanctum</span></div></div>
           <div class="skill-card reveal" data-cat="tools"><div class="skill-card-top"><span class="skill-cat-label">DESIGN &amp; TOOLS</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.03743 19.1789 5.09262 19.4445 4.99616 19.682C4.70617 20.3957 4.54 21.1787 4.54 22C4.54 22 7.5 22 12 22Z"/><circle cx="7.5" cy="10.5" r="1.5"/><circle cx="11.5" cy="7.5" r="1.5"/><circle cx="16.5" cy="9.5" r="1.5"/></svg></span></div><h3>Figma &amp; Brand Design</h3><p>UI design, interactive prototyping, wireframing, fashion apparel graphics, and comprehensive typography systems.</p><div class="skill-tags"><span>Figma</span><span>UI Design</span><span>Prototyping</span></div></div>
           <div class="skill-card reveal" data-cat="tools"><div class="skill-card-top"><span class="skill-cat-label">DESIGN &amp; TOOLS</span><span class="skill-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span></div><h3>Git, Illustrator &amp; Photoshop</h3><p>Version control workflows, Git branch strategies, vector artwork, and promotional graphic rendering at production quality.</p><div class="skill-tags"><span>Git</span><span>GitHub</span><span>Illustrator</span><span>Photoshop</span></div></div>
@@ -343,7 +343,7 @@
     <div class="container footer-inner">
       <div class="footer-left">
         <a href="#home-top" class="footer-logo magnetic" aria-label="Hatim Drif — Home">
-          <img src="assets/images/casrologo.png" alt="casrologo" class="footer-logo-img">
+          <img src="./assets/images/casrologo.png" alt="casrologo" class="footer-logo-img">
         </a>
         <div class="footer-text-group">
           <strong>Hatim Drif</strong>
@@ -357,7 +357,7 @@
 
   <!-- Floating Brand Watermark -->
   <div class="brand-watermark" aria-hidden="true">
-    <img src="assets/images/casrologo.png" alt="" class="watermark-logo-img">
+    <img src="./assets/images/casrologo.png" alt="" class="watermark-logo-img">
   </div>
 
   <!-- MODAL -->
