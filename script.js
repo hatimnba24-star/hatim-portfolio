@@ -296,9 +296,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ── 13. CV BUTTON ──────────────────────────────────────── */
-  const cvBtn = $('#download-cv-btn');
-  if (cvBtn) { cvBtn.addEventListener('click', e => { e.preventDefault(); alert('Hatim Drif — CV download initiated.'); }); }
+  /* ── 13. CV BUTTON & TOAST ──────────────────────────────── */
+  const cvToast = document.createElement('div');
+  cvToast.className = 'cv-toast';
+  cvToast.textContent = 'Downloading CV…';
+  document.body.appendChild(cvToast);
+
+  const showToast = msg => {
+    if (msg) cvToast.textContent = msg;
+    cvToast.classList.add('show');
+    setTimeout(() => { cvToast.classList.remove('show'); }, 3200);
+  };
+
+  $$('a[download]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      showToast('Downloading CV…');
+    });
+  });
 
   /* ── 14. FOOTER YEAR ────────────────────────────────────── */
   const fy = $('#footer-year');

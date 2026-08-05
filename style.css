@@ -2169,4 +2169,32 @@ img {
   }
 }
 
+/* ── CV TOAST NOTIFICATION ──────────────────────────────── */
+.cv-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 99999;
+  background: rgba(17, 17, 19, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-pill);
+  padding: 0.65rem 1.4rem;
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-hi);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s var(--ease-luxury), transform 0.3s var(--ease-luxury);
+  pointer-events: none;
+}
+.cv-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
