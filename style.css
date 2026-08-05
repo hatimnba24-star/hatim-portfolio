@@ -1288,6 +1288,107 @@ body::after {
   transform: translateX(6px);
 }
 
+/* ── PROJECT CARD PREMIUM FOOTER ─────────────────────────── */
+.project-footer {
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border-subtle);
+  width: 100%;
+}
+
+.project-footer-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.4vw, 1rem);
+  flex-wrap: wrap;
+}
+
+.project-footer-link {
+  font-family: var(--font-head);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-mid);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.85rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.02);
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.project-footer-link:focus-visible {
+  outline: 2px solid var(--text-hi);
+  outline-offset: 3px;
+  border-color: var(--text-hi);
+}
+
+.project-footer-icon {
+  width: 15px;
+  height: 15px;
+  stroke-width: 1.8;
+  color: var(--silver);
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out, color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  display: block;
+}
+
+/* Specific Hover Behaviors */
+/* 1. GitHub: slightly scale icon, white glow, cursor pointer */
+.project-link-github:hover {
+  color: var(--text-hi);
+  border-color: var(--border-medium);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.12);
+}
+.project-link-github:hover .project-footer-icon {
+  transform: scale(1.15);
+  color: var(--white);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+}
+
+/* 2. Live Demo: arrow slides slightly, soft glow */
+.project-link-demo:hover {
+  color: var(--text-hi);
+  border-color: var(--border-medium);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.12);
+}
+.project-link-demo:hover .project-icon-demo {
+  transform: translate(3px, -3px);
+  color: var(--white);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+}
+
+/* 3. Instagram: small scale, soft opacity transition */
+.project-link-ig:hover {
+  color: var(--text-hi);
+  border-color: var(--border-medium);
+  background: rgba(255, 255, 255, 0.06);
+}
+.project-link-ig:hover .project-footer-icon {
+  transform: scale(1.12);
+  color: var(--white);
+  opacity: 1;
+}
+
+/* 4. WhatsApp: small glow, smooth scale animation (monochrome!) */
+.project-link-wa:hover {
+  color: var(--text-hi);
+  border-color: var(--border-medium);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.12);
+}
+.project-link-wa:hover .project-footer-icon {
+  transform: scale(1.12);
+  color: var(--white);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.7));
+}
+
 /* CASRO Lookbook */
 .lookbook-wrap {
   border: 1px solid var(--border-subtle);
