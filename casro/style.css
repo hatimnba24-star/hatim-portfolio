@@ -15,3 +15,262 @@
 .casro-hero-badge {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
+
+/* ============================================================
+   FULL-SCREEN CINEMATIC CASRO LOOKBOOK SHOWCASE STYLES
+   ============================================================ */
+.lookbook-fullscreen-section {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  background: var(--bg-base);
+  padding: 5rem 0 6rem;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lookbook-editorial-header {
+  text-align: center;
+  padding: 0 var(--gutter);
+  margin-bottom: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.lookbook-editorial-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-head);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-lo);
+}
+
+.lookbook-editorial-title {
+  font-family: var(--font-head);
+  font-size: clamp(2.8rem, 7.5vw, 5.8rem);
+  font-weight: 800;
+  letter-spacing: -2.5px;
+  line-height: 0.98;
+  color: var(--text-hi);
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+}
+
+.lookbook-editorial-sub {
+  font-family: var(--font-head);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+/* Full-Width Runway Viewport */
+.lookbook-runway-viewport {
+  width: 100vw;
+  height: clamp(480px, 64vh, 720px);
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 2rem;
+}
+
+.lookbook-runway-viewport:active {
+  cursor: grabbing;
+}
+
+.lookbook-runway-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 3.5vw, 4rem);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  will-change: transform;
+  height: 100%;
+}
+
+/* Individual Slide Styling */
+.runway-slide {
+  flex-shrink: 0;
+  height: 100%;
+  width: clamp(340px, 58vw, 920px);
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface-1);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  transition: transform 0.4s var(--ease-luxury), opacity 0.4s ease, filter 0.4s ease, border-color 0.4s ease;
+  transform-origin: center center;
+}
+
+.runway-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transition: transform 0.6s var(--ease-luxury), filter 0.4s ease;
+  pointer-events: none;
+}
+
+/* Desktop Hover Effect */
+@media (pointer: fine) {
+  .runway-slide:hover {
+    border-color: var(--border-medium);
+  }
+  .runway-slide:hover img {
+    transform: scale(1.035);
+    filter: brightness(1.05) !important;
+  }
+}
+
+/* Slide Badge Overlay */
+.runway-slide-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.8rem;
+  padding: 0.45rem 1.1rem;
+  background: rgba(7, 7, 7, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-head);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: var(--text-hi);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* Runway Footer Navigation Bar */
+.lookbook-runway-bar {
+  width: 100%;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(17, 17, 19, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-bottom: 4.5rem;
+}
+
+.lookbook-runway-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.lookbook-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-head);
+}
+
+.lb-counter {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--text-hi);
+}
+
+.lb-caption {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  color: var(--text-mid);
+  text-transform: uppercase;
+}
+
+.lookbook-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lb-runway-btn {
+  font-family: var(--font-head);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: var(--text-mid);
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 0.4rem 0.6rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.lb-runway-btn:hover {
+  color: var(--text-hi);
+  transform: translateY(-1px);
+}
+
+.lb-runway-dot {
+  color: var(--text-lo);
+  font-size: 0.8rem;
+}
+
+/* Campaign Info & Garment Showcase underneath runway */
+.lookbook-details-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .lookbook-fullscreen-section {
+    min-height: 100svh;
+    padding: 4rem 0 4rem;
+  }
+  .lookbook-editorial-title {
+    font-size: clamp(2.2rem, 10vw, 3.4rem);
+    letter-spacing: -1.5px;
+  }
+  .lookbook-editorial-sub {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+  }
+  .lookbook-runway-viewport {
+    height: clamp(380px, 56vh, 520px);
+    margin: 1rem 0 1.5rem;
+  }
+  .runway-slide {
+    width: clamp(280px, 80vw, 420px);
+  }
+  .lookbook-runway-bar-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.8rem;
+  }
+  .lookbook-bar-left {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .lookbook-details-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+

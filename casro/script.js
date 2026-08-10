@@ -204,61 +204,236 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach(el => el.classList.add('in-view'));
   }
 
-  /* ── 10. CASRO LOOKBOOK CAROUSEL ────────────────────────── */
-  const lbTrack = $('#lookbook-track');
-  const lbDots  = $('#lookbook-dots');
-  const lbPrev  = $('#lb-prev');
-  const lbNext  = $('#lb-next');
+  /* ── 10. CINEMATIC FULL-SCREEN RUNWAY LOOKBOOK ──────────── */
+  const runwayViewport = $('#lookbook-runway-viewport');
+  const runwayTrack    = $('#lookbook-runway-track');
 
-  if (lbTrack) {
-    const SLIDES = 9;
-    let lbIndex = 0;
+  if (runwayViewport && runwayTrack) {
+    const LOOK_CAPTIONS = [
+      'STRUCTURAL STREETWEAR SILHOUETTES',
+      'HIGH-DENSITY MONOCHROME PRINT',
+      'MINIMAL CREST TAILORED FIT',
+      'ARCHITECTURAL DROP-SHOULDER CUT',
+      'TACTILE COTTON CONTEMPORARY FIT',
+      'HIGH-CONTRAST VECTOR GRAPHICS',
+      'ATELIER EDITORIAL FORM',
+      'TACTILE TEXTILE DETAIL CLOSE-UP',
+      'SIGNATURE CAPSULE LOOKBOOK'
+    ];
+    const TOTAL_LOOKS = 9;
 
-    for (let i = 1; i <= SLIDES; i++) {
-      const card = document.createElement('div');
-      card.className = 'lookbook-card';
+    const createSlide = (index) => {
+      const lookNum = (index % TOTAL_LOOKS) + 1;
+      const slide = document.createElement('div');
+      slide.className = 'runway-slide';
+      slide.dataset.index = index % TOTAL_LOOKS;
+
       const img = document.createElement('img');
-      img.src = `../assets/images/${i}.png`; 
-      img.alt = `CASRO Campaign Look ${i}`; 
-      img.loading = 'lazy';
-      card.appendChild(img); 
-      lbTrack.appendChild(card);
-    }
+      img.src = `../assets/images/${lookNum}.png`;
+      img.alt = `CASRO Campaign Look 0${lookNum}`;
+      img.loading = index < TOTAL_LOOKS ? 'eager' : 'lazy';
 
-    const dots = [];
-    if (lbDots) {
-      for (let i = 0; i < SLIDES; i++) {
-        const btn = document.createElement('button');
-        btn.className = 'lb-dot' + (i === 0 ? ' active' : '');
-        btn.setAttribute('aria-label', `Go to look ${i + 1}`);
-        btn.addEventListener('click', () => goTo(i));
-        lbDots.appendChild(btn); 
-        dots.push(btn);
+      const badge = document.createElement('div');
+      badge.className = 'runway-slide-badge';
+      badge.textContent = `LOOK 0${lookNum}`;
+
+      slide.appendChild(img);
+      slide.appendChild(badge);
+      return slide;
+    };
+
+    // Populate 3 repetitions of slides for seamless loop
+    const REPEATS = 3;
+    for (let r = 0; r < REPEATS; r++) {
+      for (let i = 0; i < TOTAL_LOOKS; i++) {
+        runwayTrack.appendChild(createSlide(i));
       }
     }
 
-    const goTo = idx => {
-      lbIndex = (idx + SLIDES) % SLIDES;
-      lbTrack.style.transform = `translateX(-${lbIndex * 100}%)`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === lbIndex));
+    const slides = $$('.runway-slide', runwayTrack);
+    const lbCounter = $('#lb-counter');
+    const lbCaption = $('#lb-caption');
+    const btnPrev   = $('#lb-runway-prev');
+    const btnNext   = $('#lb-runway-next');
+
+    let currentPos = 0;
+    let autoSpeed = -0.75; // Left to right continuous motion
+    let isDragging = false;
+    let startX = 0;
+    let dragStartPos = 0;
+    let velocity = 0;
+    let lastX = 0;
+    let lastTime = 0;
+    let autoResumeTimer = null;
+    let isHovered = false;
+
+    let slideWidth = 0;
+    let gap = 0;
+    let setWidth = 0;
+
+    const measureSizes = () => {
+      if (!slides.length) return;
+      const r0 = slides[0].getBoundingClientRect();
+      const r1 = slides[1].getBoundingClientRect();
+      slideWidth = r0.width;
+      gap = r1.left - r0.right;
+      if (gap <= 0 || isNaN(gap)) gap = 32;
+      setWidth = (slideWidth + gap) * TOTAL_LOOKS;
     };
 
-    if (lbPrev) lbPrev.addEventListener('click', () => goTo(lbIndex - 1));
-    if (lbNext) lbNext.addEventListener('click', () => goTo(lbIndex + 1));
+    setTimeout(measureSizes, 50);
+    window.addEventListener('resize', measureSizes);
 
-    let startX = 0;
-    if (lbTrack.parentElement) {
-      lbTrack.parentElement.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-      lbTrack.parentElement.addEventListener('touchend', e => {
-        const dx = e.changedTouches[0].clientX - startX;
-        if (Math.abs(dx) > 40) goTo(lbIndex + (dx < 0 ? 1 : -1));
+    currentPos = -setWidth;
+
+    const updateFocalEffects = () => {
+      const viewportRect = runwayViewport.getBoundingClientRect();
+      const viewportCenter = viewportRect.left + viewportRect.width / 2;
+
+      let minDistance = Infinity;
+      let activeIndex = 0;
+
+      slides.forEach((slide) => {
+        const rect = slide.getBoundingClientRect();
+        const slideCenter = rect.left + rect.width / 2;
+        const dist = Math.abs(slideCenter - viewportCenter);
+        const maxDist = viewportRect.width / 1.8;
+
+        const normDist = Math.min(dist / maxDist, 1.0);
+        const focusFactor = (1 + Math.cos(normDist * Math.pi)) / 2;
+
+        const scale = 0.85 + focusFactor * 0.15;
+        const opacity = 0.48 + focusFactor * 0.52;
+        const brightness = 0.65 + focusFactor * 0.35;
+
+        slide.style.transform = `scale(${scale.toFixed(3)})`;
+        slide.style.opacity = opacity.toFixed(3);
+        const img = slide.querySelector('img');
+        if (img) img.style.filter = `brightness(${brightness.toFixed(3)})`;
+
+        if (dist < minDistance) {
+          minDistance = dist;
+          activeIndex = parseInt(slide.dataset.index, 10);
+        }
       });
+
+      if (lbCounter) lbCounter.textContent = `LOOK 0${activeIndex + 1} / 0${TOTAL_LOOKS}`;
+      if (lbCaption) lbCaption.textContent = LOOK_CAPTIONS[activeIndex] || '';
+    };
+
+    let animId = null;
+    const animateTrack = (now) => {
+      if (!isDragging) {
+        if (Math.abs(velocity) > 0.05) {
+          currentPos += velocity;
+          velocity *= 0.94;
+        } else {
+          velocity = 0;
+          if (!isHovered) {
+            currentPos += autoSpeed;
+          }
+        }
+      }
+
+      if (setWidth > 0) {
+        if (currentPos < -setWidth * 2) {
+          currentPos += setWidth;
+        } else if (currentPos > 0) {
+          currentPos -= setWidth;
+        }
+      }
+
+      runwayTrack.style.transform = `translate3d(${currentPos.toFixed(2)}px, 0, 0)`;
+      updateFocalEffects();
+
+      animId = requestAnimationFrame(animateTrack);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!animId) animId = requestAnimationFrame(animateTrack);
+          } else {
+            if (animId) {
+              cancelAnimationFrame(animId);
+              animId = null;
+            }
+          }
+        });
+      }, { threshold: 0.02 });
+      observer.observe(runwayViewport);
+    } else {
+      animId = requestAnimationFrame(animateTrack);
     }
 
-    let autoLB = setInterval(() => goTo(lbIndex + 1), 4000);
-    [lbPrev, lbNext, ...dots].forEach(el => {
-      if (el) el.addEventListener('click', () => { clearInterval(autoLB); autoLB = setInterval(() => goTo(lbIndex + 1), 4000); });
+    const pauseAuto = () => {
+      if (autoResumeTimer) clearTimeout(autoResumeTimer);
+    };
+
+    const resumeAuto = () => {
+      autoResumeTimer = setTimeout(() => {
+        isDragging = false;
+      }, 1800);
+    };
+
+    runwayViewport.addEventListener('mouseenter', () => { isHovered = true; });
+    runwayViewport.addEventListener('mouseleave', () => {
+      isHovered = false;
+      if (isDragging) {
+        isDragging = false;
+        resumeAuto();
+      }
     });
+
+    const onPointerDown = (clientX) => {
+      isDragging = true;
+      startX = clientX;
+      dragStartPos = currentPos;
+      lastX = clientX;
+      lastTime = performance.now();
+      velocity = 0;
+      pauseAuto();
+    };
+
+    const onPointerMove = (clientX) => {
+      if (!isDragging) return;
+      const dx = clientX - startX;
+      currentPos = dragStartPos + dx;
+
+      const now = performance.now();
+      const dt = now - lastTime;
+      if (dt > 0) {
+        velocity = (clientX - lastX) * (16 / dt);
+      }
+      lastX = clientX;
+      lastTime = now;
+    };
+
+    const onPointerUp = () => {
+      if (isDragging) {
+        isDragging = false;
+        resumeAuto();
+      }
+    };
+
+    runwayViewport.addEventListener('mousedown', (e) => { onPointerDown(e.clientX); });
+    window.addEventListener('mousemove', (e) => { if (isDragging) onPointerMove(e.clientX); });
+    window.addEventListener('mouseup', () => { onPointerUp(); });
+
+    runwayViewport.addEventListener('touchstart', (e) => { onPointerDown(e.touches[0].clientX); }, { passive: true });
+    runwayViewport.addEventListener('touchmove', (e) => { if (isDragging) onPointerMove(e.touches[0].clientX); }, { passive: true });
+    runwayViewport.addEventListener('touchend', () => { onPointerUp(); });
+
+    const stepSlide = (direction) => {
+      pauseAuto();
+      const itemWidth = (slideWidth || 400) + (gap || 32);
+      velocity = direction * (itemWidth * 0.12);
+      resumeAuto();
+    };
+
+    if (btnPrev) btnPrev.addEventListener('click', () => stepSlide(1));
+    if (btnNext) btnNext.addEventListener('click', () => stepSlide(-1));
   }
 
   /* ── 11. CONTACT FORM ───────────────────────────────────── */
