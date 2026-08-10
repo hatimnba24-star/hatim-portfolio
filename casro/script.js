@@ -1,8 +1,12 @@
 /**
  * CASRO BRAND HOUSE — INTERACTION ENGINE (2026)
  * Custom Cursor · Magnetic Buttons · Scroll Reveal · Campaign Lookbook
- * Role Rotator · Page Transition to Home · Color Swap Tee
+ * Role Rotator · Page Transition to Home · 3D Interactive T-Shirt Viewer
  */
+
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 'use strict';
 
@@ -83,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     requestAnimationFrame(tick);
 
-    const targets = $$('[data-cursor-label], a, button, .portrait-card, .casro-card, .casro-gallery-item, .tshirt-swap');
+    const targets = $$('[data-cursor-label], a, button, .portrait-card, .casro-card, .casro-gallery-item, .casro-3d-viewer-container');
     targets.forEach(el => {
       el.addEventListener('mouseenter', () => {
         ring.classList.add('expand');
@@ -281,5 +285,266 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── 12. FOOTER YEAR ────────────────────────────────────── */
   const fy = $('#footer-year');
   if (fy) fy.textContent = new Date().getFullYear();
+
+  /* ── 13. 3D INTERACTIVE T-SHIRT VIEWER ──────────────────── */
+  const init3DViewer = () => {
+    const viewport = $('#casro-3d-viewport');
+    const canvas   = $('#casro-3d-canvas');
+    if (!viewport || !canvas) return;
+
+    const loadingOverlay  = $('#casro-3d-loading');
+    const loadingProgress = $('#casro-3d-loading-progress');
+    const errorOverlay    = $('#casro-3d-error');
+    const fallbackOverlay = $('#casro-2d-fallback');
+    const fallbackBtn     = $('#casro-3d-fallback-btn');
+    const retryBtn        = $('#casro-3d-retry-btn');
+    const btnFront        = $('#btn-view-front');
+    const btn360          = $('#btn-view-360');
+    const btnBack         = $('#btn-view-back');
+
+    // 1. Scene setup
+    const scene = new THREE.Scene();
+
+    // 2. Camera setup
+    const rect = viewport.getBoundingClientRect();
+    const aspect = (rect.width || 400) / (rect.height || 420);
+    const camera = new THREE.PerspectiveCamera(45, aspect, 0.1, 100);
+    camera.position.set(0, 0.1, 3.2);
+
+    // 3. Renderer setup
+    const renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      antialias: true,
+      alpha: true,
+      powerPreference: 'high-performance'
+    });
+    renderer.setSize(rect.width || 400, rect.height || 420, false);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.1;
+
+    // 4. Studio Lighting setup
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+    scene.add(ambientLight);
+
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.2);
+    keyLight.position.set(3, 4, 3);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.width = 1024;
+    keyLight.shadow.mapSize.height = 1024;
+    keyLight.shadow.bias = -0.0001;
+    scene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0xdfe6e9, 1.0);
+    fillLight.position.set(-3, 2, 2);
+    scene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0xffffff, 1.6);
+    rimLight.position.set(0, 4, -4);
+    scene.add(rimLight);
+
+    // 5. Orbit Controls setup
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.enableZoom = true;
+    controls.minDistance = 1.5;
+    controls.maxDistance = 4.5;
+    controls.minPolarAngle = Math.PI * 0.25; // Limit vertical rotation (~45°)
+    controls.maxPolarAngle = Math.PI * 0.58; // Limit vertical rotation (~104°, no upside-down flips)
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 2.0;
+    controls.target.set(0, 0, 0);
+
+    // 6. Model Loading
+    const modelUrl = '../assets/models/casro-tshirt.glb';
+    let loadedModel = null;
+    const gltfLoader = new GLTFLoader();
+
+    gltfLoader.load(
+      modelUrl,
+      (gltf) => {
+        loadedModel = gltf.scene;
+
+        loadedModel.traverse((child) => {
+          if (child.isMesh) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+            if (child.material) {
+              child.material.roughness = child.material.roughness ?? 0.65;
+              child.material.metalness = child.material.metalness ?? 0.1;
+            }
+          }
+        });
+
+        // Center & scale model
+        const box = new THREE.Box3().setFromObject(loadedModel);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+        const scale = 2.0 / (maxDim || 1);
+
+        loadedModel.scale.set(scale, scale, scale);
+        loadedModel.position.x = -center.x * scale;
+        loadedModel.position.y = -center.y * scale;
+        loadedModel.position.z = -center.z * scale;
+
+        // Shadow floor plane
+        const shadowPlaneGeo = new THREE.PlaneGeometry(10, 10);
+        const shadowPlaneMat = new THREE.ShadowMaterial({ opacity: 0.22 });
+        const shadowPlane = new THREE.Mesh(shadowPlaneGeo, shadowPlaneMat);
+        shadowPlane.rotation.x = -Math.PI / 2;
+        shadowPlane.position.y = box.min.y * scale - 0.05;
+        shadowPlane.receiveShadow = true;
+        scene.add(shadowPlane);
+
+        scene.add(loadedModel);
+
+        if (loadingOverlay) loadingOverlay.classList.add('hidden');
+      },
+      (xhr) => {
+        if (xhr.lengthComputable && loadingProgress) {
+          const percent = Math.round((xhr.loaded / xhr.total) * 100);
+          loadingProgress.textContent = `${percent}%`;
+        }
+      },
+      (error) => {
+        console.warn('CASRO 3D Viewer Notice: Model file missing at ../assets/models/casro-tshirt.glb.', error);
+        if (loadingOverlay) loadingOverlay.classList.add('hidden');
+        if (errorOverlay) errorOverlay.classList.remove('hidden');
+      }
+    );
+
+    // 7. Camera angle controls (FRONT, 360°, BACK)
+    let isTransitioning = false;
+    let transitionStartTime = 0;
+    let startAngle = 0;
+    let targetAngle = 0;
+    const duration = 750;
+
+    const setActiveControl = (activeBtn) => {
+      [btnFront, btn360, btnBack].forEach(btn => {
+        if (btn) btn.classList.toggle('active', btn === activeBtn);
+      });
+    };
+
+    const animateAngleTo = (targetAzimuth) => {
+      controls.autoRotate = false;
+      startAngle = controls.getAzimuthalAngle();
+
+      let delta = targetAzimuth - startAngle;
+      while (delta < -Math.PI) delta += Math.PI * 2;
+      while (delta > Math.PI) delta -= Math.PI * 2;
+
+      targetAngle = startAngle + delta;
+      isTransitioning = true;
+      transitionStartTime = performance.now();
+    };
+
+    if (btnFront) {
+      btnFront.addEventListener('click', () => {
+        setActiveControl(btnFront);
+        animateAngleTo(0);
+      });
+    }
+
+    if (btnBack) {
+      btnBack.addEventListener('click', () => {
+        setActiveControl(btnBack);
+        animateAngleTo(Math.PI);
+      });
+    }
+
+    if (btn360) {
+      btn360.addEventListener('click', () => {
+        setActiveControl(btn360);
+        isTransitioning = false;
+        controls.autoRotate = true;
+      });
+    }
+
+    if (fallbackBtn && fallbackOverlay) {
+      fallbackBtn.addEventListener('click', () => {
+        fallbackOverlay.classList.remove('hidden');
+      });
+    }
+
+    if (retryBtn && fallbackOverlay) {
+      retryBtn.addEventListener('click', () => {
+        fallbackOverlay.classList.add('hidden');
+      });
+    }
+
+    // 8. Optimized Render Loop with Viewport IntersectionObserver
+    let isVisible = false;
+    let animId = null;
+
+    const tick = (now) => {
+      if (!isVisible) return;
+      animId = requestAnimationFrame(tick);
+
+      if (isTransitioning) {
+        const elapsed = now - transitionStartTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const currentAngle = startAngle + (targetAngle - startAngle) * ease;
+
+        const radius = camera.position.distanceTo(controls.target);
+        const polar = controls.getPolarAngle();
+        camera.position.x = controls.target.x + radius * Math.sin(polar) * Math.sin(currentAngle);
+        camera.position.z = controls.target.z + radius * Math.sin(polar) * Math.cos(currentAngle);
+
+        if (progress >= 1) {
+          isTransitioning = false;
+        }
+      }
+
+      controls.update();
+      renderer.render(scene, camera);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (!isVisible) {
+              isVisible = true;
+              animId = requestAnimationFrame(tick);
+            }
+          } else {
+            isVisible = false;
+            if (animId) cancelAnimationFrame(animId);
+          }
+        });
+      }, { threshold: 0.05 });
+      observer.observe(viewport);
+    } else {
+      isVisible = true;
+      animId = requestAnimationFrame(tick);
+    }
+
+    // 9. Resize Observer
+    const onResize = () => {
+      const w = viewport.clientWidth;
+      const h = viewport.clientHeight;
+      if (w && h) {
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h, false);
+      }
+    };
+
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(() => onResize());
+      ro.observe(viewport);
+    } else {
+      window.addEventListener('resize', onResize);
+    }
+  };
+
+  // Initialize 3D Viewer
+  init3DViewer();
 
 });
