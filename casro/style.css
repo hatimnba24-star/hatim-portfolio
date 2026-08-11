@@ -274,3 +274,119 @@
   }
 }
 
+/* ============================================================
+   PREMIUM HERO ENTRANCE ANIMATION (MASKED BOTTOM-TO-TOP REVEAL)
+   ============================================================ */
+.hero-name-mask {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Base Initial States (JS Ready) */
+.js-ready .hero-brand-mark,
+.js-ready .casro-hero-badge {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.js-ready .hero-name-line {
+  transform: translateY(110%);
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+}
+
+.js-ready .hero-role,
+.js-ready .hero-desc,
+.js-ready .hero-actions,
+.js-ready .hero-meta {
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform, opacity;
+  transition: transform 1.0s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+}
+
+/* Animated Entrance Active State */
+.hero.hero-entrance-active .hero-brand-mark,
+.hero.hero-entrance-active .casro-hero-badge {
+  opacity: 1;
+  transition-delay: 0.05s;
+}
+
+.hero.hero-entrance-active .hero-name-line[data-hero-step="1"] {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.20s;
+}
+
+.hero.hero-entrance-active .hero-name-line[data-hero-step="2"] {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.35s;
+}
+
+.hero.hero-entrance-active .hero-role {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.55s;
+}
+
+.hero.hero-entrance-active .hero-desc {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.70s;
+}
+
+.hero.hero-entrance-active .hero-actions {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.85s;
+}
+
+.hero.hero-entrance-active .hero-meta {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.00s;
+}
+
+/* Mobile Reduced Displacement */
+@media (max-width: 768px) {
+  .js-ready .hero-name-line {
+    transform: translateY(75%);
+  }
+  .js-ready .hero-role,
+  .js-ready .hero-desc,
+  .js-ready .hero-actions,
+  .js-ready .hero-meta {
+    transform: translateY(28px);
+  }
+}
+
+/* Reduced Motion & No-JS Fallbacks */
+@media (prefers-reduced-motion: reduce) {
+  .js-ready .hero-brand-mark,
+  .js-ready .casro-hero-badge,
+  .js-ready .hero-name-line,
+  .js-ready .hero-role,
+  .js-ready .hero-desc,
+  .js-ready .hero-actions,
+  .js-ready .hero-meta {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.no-js .hero-brand-mark,
+.no-js .casro-hero-badge,
+.no-js .hero-name-line,
+.no-js .hero-role,
+.no-js .hero-desc,
+.no-js .hero-actions,
+.no-js .hero-meta {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+

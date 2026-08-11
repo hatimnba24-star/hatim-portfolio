@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 0b. SESSION INTRO LOADING SCREEN CONTROLLER ─────────── */
   const introScreen = $('#intro-screen');
+  const introViewed = sessionStorage.getItem('casro_brand_intro_viewed');
   if (introScreen) {
-    const introViewed = sessionStorage.getItem('casro_brand_intro_viewed');
     if (introViewed || isReduced) {
       introScreen.style.display = 'none';
       introScreen.remove();
@@ -55,6 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => { introScreen.remove(); }, 850);
       }, 1400);
     }
+  }
+
+  /* ── 0c. HERO ENTRANCE ANIMATION CONTROLLER ─────────────── */
+  const heroSection = $('#hero');
+  const triggerHeroEntrance = () => {
+    if (heroSection) {
+      heroSection.classList.add('hero-entrance-active');
+    }
+  };
+
+  if (introScreen && !introViewed && !isReduced) {
+    setTimeout(triggerHeroEntrance, 1300);
+  } else {
+    requestAnimationFrame(() => {
+      setTimeout(triggerHeroEntrance, 60);
+    });
   }
 
   /* ── 1. CUSTOM MAGNETIC CURSOR ─────────────────────────── */
