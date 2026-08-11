@@ -1,485 +1,24 @@
 /* ============================================================
-   CASRO BRAND HOUSE — BALENCIAGA LUXURY DESIGN SYSTEM (2026)
-   Clean High-Fashion E-Commerce & Editorial Aesthetic
+   CASRO BRAND HOUSE — EXTENDED STYLESHEET (2026)
+   Extends root design system tokens and visual identity
    ============================================================ */
 
-/* ── 1. TOP ANNOUNCEMENT BAR ───────────────────────────────── */
-.top-announcement-bar {
-  width: 100%;
-  background: #0a0a0c;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.45rem var(--gutter);
-  text-align: center;
-  font-family: var(--font-head);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.7);
-  text-transform: uppercase;
-  z-index: 1001;
-  position: relative;
+/* Additional CASRO Page Specific Fine-Tuning */
+#casro-top {
+  background: var(--bg-base);
 }
 
-/* ── 2. BALENCIAGA LUXURY HEADER ───────────────────────────── */
-.balenciaga-header {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid #e5e5e5;
-  z-index: 1000;
-  transition: background 0.3s ease, border-color 0.3s ease;
+.casro-brand-header {
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-.balenciaga-header .nav-inner {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0.85rem var(--gutter);
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 1rem;
+.casro-hero-badge {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.nav-cats {
-  display: flex;
-  align-items: center;
-  gap: 1.8rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-cat-link {
-  font-family: var(--font-head);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  color: #111111;
-  text-transform: uppercase;
-  transition: opacity 0.25s ease;
-  text-decoration: none;
-}
-
-.nav-cat-link:hover {
-  opacity: 0.55;
-}
-
-.nav-highlight {
-  position: relative;
-}
-
-.nav-highlight::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 100%;
-  height: 1.5px;
-  background: #111111;
-}
-
-/* Centered Logo Wordmark */
-.balenciaga-logo {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo-wordmark {
-  font-family: var(--font-head);
-  font-size: 1.55rem;
-  font-weight: 900;
-  letter-spacing: 3.5px;
-  color: #111111;
-  text-transform: uppercase;
-  line-height: 1;
-}
-
-/* Right Utilities */
-.nav-utilities {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1.2rem;
-}
-
-.nav-icon-btn {
-  background: transparent;
-  border: none;
-  color: #111111;
-  cursor: pointer;
-  padding: 0.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.25s ease;
-  position: relative;
-  text-decoration: none;
-}
-
-.nav-icon-btn:hover {
-  opacity: 0.55;
-}
-
-.bag-count {
-  position: absolute;
-  top: -4px;
-  right: -6px;
-  background: #111111;
-  color: #ffffff;
-  font-family: var(--font-head);
-  font-size: 0.6rem;
-  font-weight: 800;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ── 3. BALENCIAGA HERO SECTION ────────────────────────────── */
-.balenciaga-hero {
-  position: relative;
-  width: 100%;
-  min-height: clamp(520px, 82vh, 820px);
-  background: #0d0d0f;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-}
-
-.hero-bg-media {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.hero-bg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 25%;
-  filter: brightness(0.9);
-}
-
-.hero-vignette-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
-}
-
-.hero-container {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 3rem var(--gutter);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: clamp(480px, 75vh, 760px);
-}
-
-.hero-editorial-badge .badge-title {
-  font-family: var(--font-head);
-  font-size: clamp(2.4rem, 5.5vw, 4.5rem);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -1.5px;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-
-.hero-editorial-meta {
-  align-self: flex-end;
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.6rem;
-  margin-top: 2rem;
-}
-
-.hero-season-title {
-  font-family: var(--font-head);
-  font-size: clamp(3rem, 7vw, 6rem);
-  font-weight: 800;
-  letter-spacing: -2px;
-  color: rgba(255, 255, 255, 0.95);
-  line-height: 0.9;
-  margin: 0;
-}
-
-.hero-season-sub {
-  font-family: var(--font-head);
-  font-size: clamp(0.78rem, 1.5vw, 1.1rem);
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.8);
-  text-transform: uppercase;
-  line-height: 1.3;
-}
-
-.btn-balenciaga-shop {
-  display: inline-block;
-  background: #111111;
-  color: #ffffff;
-  font-family: var(--font-head);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 0.75rem 2.2rem;
-  border-radius: 2px;
-  text-decoration: none;
-  margin-top: 0.8rem;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.btn-balenciaga-shop:hover {
-  background: #ffffff;
-  color: #111111;
-  transform: translateY(-2px);
-}
-
-.hero-slide-indicators {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  margin-top: 2rem;
-}
-
-.indicator-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.indicator-dot.active {
-  background: #ffffff;
-  transform: scale(1.3);
-}
-
-/* ── 4. BALENCIAGA E-COMMERCE SECTIONS ─────────────────────── */
-.balenciaga-section {
-  background: #ffffff;
-  color: #111111;
-  padding: 4.5rem 0 5.5rem;
-  border-bottom: 1px solid #e8e8e8;
-}
-
-.section-top-bar {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #111111;
-}
-
-.balenciaga-sec-title {
-  font-family: var(--font-head);
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 800;
-  letter-spacing: -1px;
-  color: #111111;
-  text-transform: uppercase;
-  margin: 0;
-  line-height: 1.0;
-}
-
-.sec-link-more {
-  font-family: var(--font-head);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: #111111;
-  text-transform: uppercase;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: gap 0.3s ease, opacity 0.3s ease;
-}
-
-.sec-link-more:hover {
-  gap: 0.8rem;
-  opacity: 0.6;
-}
-
-/* 4-Column Product Grid */
-.product-grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.8rem;
-}
-
-.product-card {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  cursor: pointer;
-}
-
-.product-image-box {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  background: #f4f4f4;
-  position: relative;
-  overflow: hidden;
-  border-radius: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.product-img-main,
-.product-img-hover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: opacity 0.4s ease, transform 0.6s ease;
-}
-
-.product-img-hover {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-}
-
-.product-card:hover .product-img-main {
-  opacity: 0;
-}
-
-.product-card:hover .product-img-hover {
-  opacity: 1;
-  transform: scale(1.03);
-}
-
-.product-tag {
-  position: absolute;
-  top: 0.8rem;
-  left: 0.8rem;
-  background: #111111;
-  color: #ffffff;
-  font-family: var(--font-head);
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  padding: 0.25rem 0.6rem;
-  border-radius: 1px;
-}
-
-.product-info-box {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.product-name {
-  font-family: var(--font-head);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #111111;
-  text-transform: uppercase;
-  margin: 0;
-  line-height: 1.35;
-}
-
-.product-price {
-  font-family: var(--font-head);
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #555555;
-}
-
-/* ── 5. ASYMMETRIC EDITORIAL SECTION ──────────────────────── */
-.balenciaga-editorial-section {
-  background: #ffffff;
-  color: #111111;
-  padding: 5rem 0 6rem;
-  border-bottom: 1px solid #e8e8e8;
-}
-
-.editorial-grid-asymmetric {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: start;
-}
-
-.tall-editorial-card {
-  width: 100%;
-  min-height: clamp(480px, 70vh, 720px);
-  background: #f4f4f4;
-  overflow: hidden;
-  border-radius: 2px;
-}
-
-.editorial-tall-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-
-.editorial-right-col {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.editorial-right-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  border-bottom: 1px solid #111111;
-  padding-bottom: 1.2rem;
-}
-
-.editorial-narrative-block {
-  padding-right: 2rem;
-}
-
-.editorial-paragraph {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
-  line-height: 1.7;
-  color: #333333;
-  font-weight: 400;
-}
-
-.editorial-sub-card {
-  width: 70%;
-  aspect-ratio: 4 / 5;
-  background: #f4f4f4;
-  overflow: hidden;
-  border-radius: 2px;
-  align-self: flex-start;
-}
-
-.editorial-sub-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ── 6. FULL-SCREEN CINEMATIC CASRO LOOKBOOK SHOWCASE ──────── */
+/* ============================================================
+   FULL-SCREEN CINEMATIC CASRO LOOKBOOK SHOWCASE STYLES
+   ============================================================ */
 .lookbook-fullscreen-section {
   width: 100vw;
   min-height: 100vh;
@@ -565,6 +104,7 @@
   height: 100%;
 }
 
+/* Individual Slide Styling */
 .runway-slide {
   flex-shrink: 0;
   height: 100%;
@@ -589,6 +129,7 @@
   pointer-events: none;
 }
 
+/* Desktop Hover Effect */
 @media (pointer: fine) {
   .runway-slide:hover {
     border-color: var(--border-medium);
@@ -599,6 +140,7 @@
   }
 }
 
+/* Slide Badge Overlay */
 .runway-slide-badge {
   position: absolute;
   bottom: 1.5rem;
@@ -618,6 +160,7 @@
   pointer-events: none;
 }
 
+/* Runway Footer Navigation Bar */
 .lookbook-runway-bar {
   width: 100%;
   padding: 1.2rem 0;
@@ -687,6 +230,7 @@
   font-size: 0.8rem;
 }
 
+/* Campaign Info & Garment Showcase underneath runway */
 .lookbook-details-wrap {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -694,35 +238,8 @@
   align-items: center;
 }
 
-/* ── 7. RESPONSIVE BREAKPOINTS ─────────────────────────────── */
-@media (max-width: 1024px) {
-  .product-grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
+/* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
-  .balenciaga-header .nav-inner {
-    grid-template-columns: auto 1fr;
-  }
-  .nav-cats {
-    display: none;
-  }
-  .logo-wordmark {
-    font-size: 1.25rem;
-    letter-spacing: 2.5px;
-  }
-  .editorial-grid-asymmetric {
-    grid-template-columns: 1fr;
-  }
-  .editorial-sub-card {
-    width: 100%;
-  }
-  .product-grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
   .lookbook-fullscreen-section {
     min-height: 100svh;
     padding: 4rem 0 4rem;
@@ -756,3 +273,4 @@
     grid-template-columns: 1fr;
   }
 }
+

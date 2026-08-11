@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CASRO — Contemporary Streetwear & Luxury Visual Identity</title>
-  <meta name="description" content="CASRO is an independent luxury streetwear label and design studio founded by Hatim Drif in Morocco. Architectural silhouettes, structural minimalism, and contemporary fashion systems.">
+  <title>CASRO — Contemporary Streetwear & Visual Identity</title>
+  <meta name="description" content="CASRO is a contemporary streetwear brand founded by Hatim Drif in Morocco. Architectural silhouettes, structural minimalism, and high-contrast fashion systems.">
   <meta name="author" content="CASRO Studio">
   <meta name="theme-color" content="#080808">
   <meta property="og:type" content="website">
@@ -23,13 +23,6 @@
 </head>
 
 <body id="casro-top">
-
-  <!-- Top Announcement Bar -->
-  <div class="top-announcement-bar">
-    <div class="announcement-content">
-      <span>CASRO AUTUMN-WINTER 22/23 CAPSULE · MOROCCO &amp; WORLDWIDE SHIPPING · INQUIRE FOR BESPOKE ORDERS</span>
-    </div>
-  </div>
 
   <!-- Premium Page Transition Overlay -->
   <div class="page-transition" id="page-transition" aria-hidden="true">
@@ -60,52 +53,41 @@
     <div class="scroll-progress-fill" id="scroll-progress-fill"></div>
   </div>
 
-  <!-- BALENCIAGA-STYLE LUXURY HEADER -->
-  <header class="balenciaga-header" id="site-header">
-    <nav class="nav-inner" aria-label="CASRO Luxury Navigation">
-      <ul class="nav-cats" role="list">
-        <li><a href="#ready-to-wear" class="nav-cat-link">MAN</a></li>
-        <li><a href="#ready-to-wear" class="nav-cat-link">WOMAN</a></li>
-        <li><a href="#footwear"     class="nav-cat-link">KIDS</a></li>
-        <li><a href="#new-collections" class="nav-cat-link">EXPLORE</a></li>
-        <li><a href="#lookbook"     class="nav-cat-link nav-highlight">NEW</a></li>
-      </ul>
-
-      <a href="#casro-top" class="balenciaga-logo magnetic" aria-label="CASRO Home">
-        <span class="logo-wordmark">CASRO</span>
+  <!-- CASRO DEDICATED NAVIGATION -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner" aria-label="CASRO Navigation">
+      <a href="#casro-top" class="nav-logo magnetic" aria-label="CASRO Home">
+        <img src="../assets/images/casrologo.png" alt="CASRO Logo" class="logo-img">
+        <span class="logo-text">CASRO</span>
       </a>
-
-      <div class="nav-utilities">
-        <button class="nav-icon-btn" id="btn-search" aria-label="Search">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        </button>
-        <a href="#contact" class="nav-icon-btn" aria-label="Account">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="../index.html" class="nav-link home-transition-link" data-cursor-label="Portfolio">HOME</a></li>
+        <li><a href="#story"        class="nav-link" data-nav="story">STORY</a></li>
+        <li><a href="#philosophy"   class="nav-link" data-nav="philosophy">PHILOSOPHY</a></li>
+        <li><a href="#collections"  class="nav-link" data-nav="collections">COLLECTIONS</a></li>
+        <li><a href="#lookbook"     class="nav-link" data-nav="lookbook">LOOKBOOK</a></li>
+        <li><a href="#contact"      class="nav-link" data-nav="contact">CONTACT</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#contact" class="nav-cta magnetic" data-cursor-label="Inquire">
+          <span>Inquire</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </a>
-        <a href="#contact" class="nav-icon-btn" aria-label="Wishlist">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-        </a>
-        <a href="#contact" class="nav-icon-btn nav-bag-btn" aria-label="Shopping Bag">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-          <span class="bag-count">0</span>
-        </a>
-        <button class="burger" id="burger-btn" aria-label="Open menu" aria-expanded="false">
+        <button class="burger" id="burger-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
           <span class="burger-line"></span><span class="burger-line"></span>
         </button>
       </div>
     </nav>
-
     <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
       <div class="mobile-nav-inner">
-        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">✕</button>
+        <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation">✕</button>
         <ul role="list">
-          <li><a href="../index.html" class="mobile-nav-link home-transition-link">PORTFOLIO HOME</a></li>
-          <li><a href="#ready-to-wear" class="mobile-nav-link">READY-TO-WEAR</a></li>
-          <li><a href="#new-collections" class="mobile-nav-link">NEW COLLECTIONS</a></li>
-          <li><a href="#footwear" class="mobile-nav-link">SNEAKERS &amp; ACCS</a></li>
-          <li><a href="#lookbook" class="mobile-nav-link">CINEMATIC LOOKBOOK</a></li>
-          <li><a href="#story" class="mobile-nav-link">BRAND STORY</a></li>
-          <li><a href="#contact" class="mobile-nav-link">CONTACT &amp; INQUIRIES</a></li>
+          <li><a href="../index.html" class="mobile-nav-link home-transition-link">HOME</a></li>
+          <li><a href="#story"        class="mobile-nav-link">STORY</a></li>
+          <li><a href="#philosophy"   class="mobile-nav-link">PHILOSOPHY</a></li>
+          <li><a href="#collections"  class="mobile-nav-link">COLLECTIONS</a></li>
+          <li><a href="#lookbook"     class="mobile-nav-link">LOOKBOOK</a></li>
+          <li><a href="#contact"      class="mobile-nav-link">CONTACT</a></li>
         </ul>
         <div class="mobile-nav-footer">
           <a href="mailto:casro@hatim.dev">casro@hatim.dev</a>
@@ -117,183 +99,147 @@
 
   <main>
 
-    <!-- ═══════════════ BALENCIAGA HERO ═══════════════ -->
-    <section id="hero" class="balenciaga-hero" aria-label="CASRO Campaign Banner">
-      <div class="hero-bg-media" aria-hidden="true">
-        <img src="../assets/images/6.png" alt="CASRO New Collection 22/23 Campaign" class="hero-bg-img" id="hero-img" fetchpriority="high">
-        <div class="hero-vignette-overlay"></div>
+    <!-- ═══════════════ CASRO HERO ═══════════════ -->
+    <section id="hero" class="hero" aria-label="CASRO Brand Introduction">
+      <div class="hero-media" aria-hidden="true">
+        <img src="../assets/images/image123.PNG" alt="CASRO Campaign Hero" class="hero-img" id="hero-img" fetchpriority="high" onerror="this.onerror=null;this.src='../assets/images/5.png'">
+        <div class="hero-vignette"></div>
       </div>
-      <div class="hero-container">
-        <div class="hero-editorial-badge reveal">
-          <span class="badge-title">NEW<br>COLLECTION</span>
+      <div class="hero-content">
+        <div class="hero-brand-mark reveal" data-reveal>
+          <img src="../assets/images/casrologo.png" alt="CASRO Logo" class="hero-casrologo">
         </div>
-        <div class="hero-editorial-meta reveal">
-          <h1 class="hero-season-title">22/23</h1>
-          <span class="hero-season-sub">AUTUMN-WINTER<br>COATS AND JACKETS</span>
-          <a href="#ready-to-wear" class="btn-balenciaga-shop magnetic" data-cursor-label="Shop">Shop now</a>
+        <div class="casro-hero-badge reveal">
+          <span>✦ CASRO BRAND HOUSE</span>
+          <span>·</span>
+          <span>EST. 2024</span>
         </div>
-        <div class="hero-slide-indicators" aria-hidden="true">
-          <span class="indicator-dot active"></span>
-          <span class="indicator-dot"></span>
-          <span class="indicator-dot"></span>
-          <span class="indicator-dot"></span>
+        <h1 class="hero-name">
+          <span class="hero-name-line" data-reveal>CASRO</span>
+          <span class="hero-name-line hero-name-outline" data-reveal>STUDIO</span>
+        </h1>
+        <div class="hero-role">
+          <span class="role-prefix">Defined by&thinsp;</span>
+          <div class="role-rotator" id="role-rotator" aria-live="polite">
+            <span class="role-item active">Architectural Streetwear</span>
+            <span class="role-item">High-Contrast Minimalism</span>
+            <span class="role-item">Custom Garment Graphics</span>
+            <span class="role-item">Tactile Textile Precision</span>
+          </div>
+        </div>
+        <p class="hero-desc">An independent luxury streetwear label and design experiment.<br>Merging raw structural aesthetics, minimal typography, and contemporary tailoring.</p>
+        <div class="hero-actions">
+          <a href="#lookbook" class="btn-primary magnetic" data-cursor-label="Campaign">Explore Lookbook <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H5M13 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="#story" class="btn-secondary magnetic" data-cursor-label="Read">Brand Story</a>
+          <a href="../index.html" class="btn-secondary magnetic home-transition-link" data-cursor-label="Developer">Portfolio Home</a>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-status">
+            <span class="status-dot"></span>
+            <span>Collection 01 — Now Live</span>
+          </div>
+          <a href="#story" class="hero-scroll-cue" aria-label="Scroll down"><span>SCROLL</span><span class="scroll-arrow">↓</span></a>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════ READY-TO-WEAR ═══════════════ -->
-    <section id="ready-to-wear" class="balenciaga-section" aria-labelledby="rtw-heading">
+    <!-- ═══════════════ BRAND STORY ═══════════════ -->
+    <section id="story" class="section" aria-labelledby="story-heading">
       <div class="container">
-        <div class="section-top-bar reveal">
-          <h2 id="rtw-heading" class="balenciaga-sec-title">READY-TO-WEAR</h2>
-          <a href="#lookbook" class="sec-link-more magnetic" data-cursor-label="Explore">See more <span>→</span></a>
-        </div>
-
-        <div class="product-grid-4 reveal">
-          <!-- Product Card 1 -->
-          <div class="product-card" data-cursor-label="View">
-            <div class="product-image-box">
-              <img src="../assets/images/tshirt-black.png" alt="Women's Swing Twisted Shirt in White" class="product-img-main" loading="lazy">
-              <img src="../assets/images/tshirt-blue.png"  alt="Women's Swing Twisted Shirt Alternate" class="product-img-hover" loading="lazy">
-              <span class="product-tag">NEW</span>
-            </div>
-            <div class="product-info-box">
-              <h3 class="product-name">WOMEN'S SWING TWISTED SHIRT IN WHITE</h3>
-              <span class="product-price">$350</span>
+        <header class="section-header reveal">
+          <span class="section-label">01 / BRAND ORIGIN</span>
+          <h2 id="story-heading" class="section-title">THE ORIGIN &amp;<br>VISION OF CASRO.</h2>
+          <p class="section-subtitle">Born in Morocco at the intersection of graphic design, software restraint, and contemporary garment construction.</p>
+        </header>
+        <div class="about-grid">
+          <div class="about-visual reveal">
+            <div class="portrait-card" data-cursor-label="Atelier">
+              <img src="../assets/images/6.png" alt="CASRO Apparel Showcase" class="portrait-img">
+              <div class="portrait-overlay"><strong>CASRO Studio</strong><span>Creative Direction by Hatim Drif</span></div>
             </div>
           </div>
-
-          <!-- Product Card 2 -->
-          <div class="product-card" data-cursor-label="View">
-            <div class="product-image-box">
-              <img src="../assets/images/5.png" alt="Cargo Jacket in Black" class="product-img-main" loading="lazy">
-              <img src="../assets/images/1.png" alt="Cargo Jacket Alternate" class="product-img-hover" loading="lazy">
-            </div>
-            <div class="product-info-box">
-              <h3 class="product-name">CARGO JACKET IN BLACK</h3>
-              <span class="product-price">$1980</span>
-            </div>
-          </div>
-
-          <!-- Product Card 3 -->
-          <div class="product-card" data-cursor-label="View">
-            <div class="product-image-box">
-              <img src="../assets/images/4.png" alt="Women's Minimal Hourglass Jacket in Black" class="product-img-main" loading="lazy">
-              <img src="../assets/images/2.png" alt="Women's Minimal Hourglass Jacket Alternate" class="product-img-hover" loading="lazy">
-            </div>
-            <div class="product-info-box">
-              <h3 class="product-name">WOMEN'S MINIMAL HOURGLASS JACKET IN BLACK</h3>
-              <span class="product-price">$2800</span>
-            </div>
-          </div>
-
-          <!-- Product Card 4 -->
-          <div class="product-card" data-cursor-label="View">
-            <div class="product-image-box">
-              <img src="../assets/images/3.png" alt="Women's Fitted Dress in Black" class="product-img-main" loading="lazy">
-              <img src="../assets/images/7.png" alt="Women's Fitted Dress Alternate" class="product-img-hover" loading="lazy">
-            </div>
-            <div class="product-info-box">
-              <h3 class="product-name">WOMEN'S FITTED DRESS IN BLACK</h3>
-              <span class="product-price">$1400</span>
+          <div class="about-narrative">
+            <blockquote class="about-quote reveal">"Fashion is architecture in motion — where proportion, weight, and visual silence dictate identity."</blockquote>
+            <p class="about-text reveal">Founded in 2024 by creative developer and designer <strong>Hatim Drif</strong>, <strong>CASRO</strong> was built to challenge generic streetwear tropes. Instead of excessive branding, CASRO focuses on deliberate cuts, high-density cotton weights, and balanced monochrome iconography.</p>
+            <p class="about-text reveal">Every garment, campaign look, and graphic element is crafted like a piece of high-grade software: clean, functional, structured, and resilient against fleeting trends.</p>
+            <div class="pillars reveal">
+              <div class="pillar"><h3>Architectural Cut &amp; Sew</h3><p>Heavyweight fabrics, custom drop-shoulder silhouettes, and tailored boxy cuts engineered for longevity.</p></div>
+              <div class="pillar"><h3>Visual Identity Systems</h3><p>Minimalist typography, vector iconography, and high-contrast colorways designed with intent.</p></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════ NEW COLLECTIONS ═══════════════ -->
-    <section id="new-collections" class="balenciaga-editorial-section" aria-labelledby="newcol-heading">
+    <!-- ═══════════════ PHILOSOPHY ═══════════════ -->
+    <section id="philosophy" class="section" aria-labelledby="philosophy-heading">
       <div class="container">
-        <div class="editorial-grid-asymmetric">
-          <!-- Left Tall Editorial Campaign Visual -->
-          <div class="editorial-left-col reveal">
-            <div class="tall-editorial-card" data-cursor-label="Campaign">
-              <img src="../assets/images/8.png" alt="CASRO Red Voluminous Coat Campaign" class="editorial-tall-img" loading="lazy">
-            </div>
+        <header class="section-header reveal">
+          <span class="section-label">02 / CORE PHILOSOPHY</span>
+          <h2 id="philosophy-heading" class="section-title">DESIGN PRINCIPLES<br>&amp; PILLARS.</h2>
+        </header>
+        <div class="casro-grid-3">
+          <div class="casro-card reveal">
+            <span class="casro-card-num">01 / STRUCTURE</span>
+            <h3 class="casro-card-title">Architectural Form</h3>
+            <p class="casro-card-text">We treat garments as structural forms. Every line, shoulder drop, and hem position is calculated to create a balanced silhouette.</p>
           </div>
-
-          <!-- Right Content Column -->
-          <div class="editorial-right-col">
-            <div class="editorial-right-header reveal">
-              <h2 id="newcol-heading" class="balenciaga-sec-title">NEW<br>COLLECTIONS</h2>
-              <a href="#lookbook" class="sec-link-more magnetic" data-cursor-label="Explore">See more <span>→</span></a>
-            </div>
-
-            <div class="editorial-narrative-block reveal">
-              <p class="editorial-paragraph">A strict elegance, you might call it. Black asymmetric dresses blowing voluminously in the arctic wind. Oversized hybrids of hoodie and padded outerwear; leather jackets that turn out to be made from Balenciaga's new mycelium-derived leather-mimicking alternative. Tote bags paired with boots.</p>
-            </div>
-
-            <div class="editorial-sub-card reveal" data-cursor-label="Atelier">
-              <img src="../assets/images/7.png" alt="CASRO Runway Stairs Campaign" class="editorial-sub-img" loading="lazy">
-            </div>
+          <div class="casro-card reveal">
+            <span class="casro-card-num">02 / RESTRAINT</span>
+            <h3 class="casro-card-title">Minimal Graphic Language</h3>
+            <p class="casro-card-text">Restraint over noise. Graphics are understated, monochrome, and placed with mathematical precision to maximize visual impact.</p>
+          </div>
+          <div class="casro-card reveal">
+            <span class="casro-card-num">03 / TEXTILE</span>
+            <h3 class="casro-card-title">Tactile Quality</h3>
+            <p class="casro-card-text">Sourcing premium 280GSM+ combed cottons, durable ribbed collars, and soft-touch screen prints built to endure years of wear.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════ SNEAKERS FOR WOMAN ═══════════════ -->
-    <section id="footwear" class="balenciaga-section" aria-labelledby="footwear-heading">
+    <!-- ═══════════════ PROCESS ═══════════════ -->
+    <section id="process" class="section" aria-labelledby="process-heading">
       <div class="container">
-        <div class="section-top-bar reveal">
-          <h2 id="footwear-heading" class="balenciaga-sec-title">SNEAKERS FOR WOMAN</h2>
-          <a href="#lookbook" class="sec-link-more magnetic" data-cursor-label="Explore">See more <span>→</span></a>
-        </div>
-
-        <div class="product-grid-4 reveal">
-          <!-- Footwear Card 1 -->
-          <div class="product-card" data-cursor-label="View">
-            <div class="product-image-box">
-              <img src="../assets/images/1.png" alt="Runner Sneaker in Multicolor" class="product-img-main" loading="lazy">
-              <img src="../assets/images/5.png" alt="Runner Sneaker Alternate" class="product-img-hover" loading="lazy">
-            </div>
-            <div class="product-info-box">
-              <h3 class="product-name">CASRO RUNNER SNEAKER IN MULTICOLOR</h3>
-              <span class="product-price">$1150</span>
-            </div>
+        <header class="section-header reveal">
+          <span class="section-label">03 / CREATIVE PROCESS</span>
+          <h2 id="process-heading" class="section-title">FROM SKETCH TO<br>FINAL GARMENT.</h2>
+          <p class="section-subtitle">A rigorous multi-step methodology bridging digital prototyping and physical craftsmanship.</p>
+        </header>
+        <div class="casro-grid-3">
+          <div class="casro-card reveal">
+            <span class="casro-card-num">STEP 01</span>
+            <h3 class="casro-card-title">Concept &amp; Vector Drafting</h3>
+            <p class="casro-card-text">Digital rendering in Figma and Illustrator to balance graphic scales, typography ratios, and print coordinates.</p>
           </div>
-
-          <!-- Footwear Card 2 -->
-          <div class="product-card" data-cursor-label="View">
-            <div class="product-image-box">
-              <img src="../assets/images/2.png" alt="Speed Logo Sneaker" class="product-img-main" loading="lazy">
-              <img src="../assets/images/6.png" alt="Speed Logo Sneaker Alternate" class="product-img-hover" loading="lazy">
-            </div>
-            <div class="product-info-box">
-              <h3 class="product-name">CASRO SPEED SNEAKER WITH LOGO</h3>
-              <span class="product-price">$895</span>
-            </div>
+          <div class="casro-card reveal">
+            <span class="casro-card-num">STEP 02</span>
+            <h3 class="casro-card-title">Pattern &amp; Sample Crafting</h3>
+            <p class="casro-card-text">Developing physical samples, testing neckband tensions, sleeve lengths, and garment drape across body profiles.</p>
           </div>
-
-          <!-- Footwear Card 3 -->
-          <div class="product-card" data-cursor-label="View">
-            <div class="product-image-box">
-              <img src="../assets/images/4.png" alt="Triple S Chunky Sneaker" class="product-img-main" loading="lazy">
-              <img src="../assets/images/8.png" alt="Triple S Chunky Sneaker Alternate" class="product-img-hover" loading="lazy">
-            </div>
-            <div class="product-info-box">
-              <h3 class="product-name">CASRO TRIPLE S CHUNKY SNEAKER BLACK</h3>
-              <span class="product-price">$1090</span>
-            </div>
-          </div>
-
-          <!-- Footwear Card 4 -->
-          <div class="product-card" data-cursor-label="View">
-            <div class="product-image-box">
-              <img src="../assets/images/9.png" alt="Foam Clog Sneaker Pink" class="product-img-main" loading="lazy">
-              <img src="../assets/images/3.png" alt="Foam Clog Sneaker Alternate" class="product-img-hover" loading="lazy">
-            </div>
-            <div class="product-info-box">
-              <h3 class="product-name">CASRO FOAM CLOG SNEAKER PINK</h3>
-              <span class="product-price">$750</span>
-            </div>
+          <div class="casro-card reveal">
+            <span class="casro-card-num">STEP 03</span>
+            <h3 class="casro-card-title">Campaign &amp; Lookbook</h3>
+            <p class="casro-card-text">High-fashion editorial photography, campaign styling, and interactive web showcases to launch the collection.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ COLLECTIONS ═══════════════ -->
+    <section id="collections" class="section" aria-labelledby="collections-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label">04 / CURATED LINEUP</span>
+          <h2 id="collections-heading" class="section-title">COLLECTION 01 —<br>STRUCTURAL ESSENTIALS.</h2>
+          <p class="section-subtitle">Our inaugural capsule showcasing minimalist tees, hoodies, and signature accessories.</p>
+        </header>
       </div>
     </section>
 
     <!-- ═══════════════ CINEMATIC LOOKBOOK SHOWCASE ═══════════════ -->
     <section id="lookbook" class="lookbook-fullscreen-section" aria-labelledby="lookbook-heading">
+      <!-- Editorial Fullscreen Header -->
       <div class="lookbook-editorial-header reveal">
         <span class="lookbook-editorial-label">
           <img src="../assets/images/casrologo.png" alt="CASRO" class="showcase-casrologo">
@@ -303,12 +249,14 @@
         <p class="lookbook-editorial-sub">DROP 01 — WRITE YOUR STORY</p>
       </div>
 
+      <!-- Full-Bleed Infinite Runway Carousel Viewport -->
       <div class="lookbook-runway-viewport" id="lookbook-runway-viewport" data-cursor-label="Drag / Swipe">
         <div class="lookbook-runway-track" id="lookbook-runway-track">
           <!-- Populated dynamically via JS with infinite cloned slides -->
         </div>
       </div>
 
+      <!-- Runway Footer Meta & Navigation Bar -->
       <div class="lookbook-runway-bar">
         <div class="container lookbook-runway-bar-inner">
           <div class="lookbook-bar-left">
@@ -323,6 +271,7 @@
         </div>
       </div>
 
+      <!-- Campaign Details & Apparel Product Showcase -->
       <div class="container lookbook-details-wrap reveal">
         <div class="project-info">
           <div class="project-meta"><span class="project-cat">Fashion · 9-Look Showcase</span><span class="project-year">2026</span></div>
@@ -379,35 +328,101 @@
       </div>
     </section>
 
-    <!-- ═══════════════ BRAND STORY & ATELIER ═══════════════ -->
-    <section id="story" class="section" aria-labelledby="story-heading">
+    <!-- ═══════════════ GALLERY ═══════════════ -->
+    <section id="gallery" class="section" aria-labelledby="gallery-heading">
       <div class="container">
         <header class="section-header reveal">
-          <span class="section-label">01 / BRAND ORIGIN</span>
-          <h2 id="story-heading" class="section-title">THE ORIGIN &amp;<br>VISION OF CASRO.</h2>
-          <p class="section-subtitle">Born in Morocco at the intersection of graphic design, software restraint, and contemporary garment construction.</p>
+          <span class="section-label">06 / VISUAL ARCHIVE</span>
+          <h2 id="gallery-heading" class="section-title">CAMPAIGN GALLERY<br>&amp; DETAILS.</h2>
+          <p class="section-subtitle">Visual highlights from studio shoots, garment textures, and editorial angles.</p>
         </header>
-        <div class="about-grid">
-          <div class="about-visual reveal">
-            <div class="portrait-card" data-cursor-label="Atelier">
-              <img src="../assets/images/6.png" alt="CASRO Apparel Showcase" class="portrait-img">
-              <div class="portrait-overlay"><strong>CASRO Studio</strong><span>Creative Direction by Hatim Drif</span></div>
-            </div>
+
+        <div class="casro-gallery-grid reveal">
+          <div class="casro-gallery-item">
+            <img src="../assets/images/1.png" alt="CASRO Look 01" class="casro-gallery-img" loading="lazy">
+            <div class="casro-gallery-caption"><span>LOOK 01</span><span>Monochrome Oversized Tee</span></div>
           </div>
-          <div class="about-narrative">
-            <blockquote class="about-quote reveal">"Fashion is architecture in motion — where proportion, weight, and visual silence dictate identity."</blockquote>
-            <p class="about-text reveal">Founded in 2024 by creative developer and designer <strong>Hatim Drif</strong>, <strong>CASRO</strong> was built to challenge generic streetwear tropes. Instead of excessive branding, CASRO focuses on deliberate cuts, high-density cotton weights, and balanced monochrome iconography.</p>
-            <p class="about-text reveal">Every garment, campaign look, and graphic element is crafted like a piece of high-grade software: clean, functional, structured, and resilient against fleeting trends.</p>
-            <div class="pillars reveal">
-              <div class="pillar"><h3>Architectural Cut &amp; Sew</h3><p>Heavyweight fabrics, custom drop-shoulder silhouettes, and tailored boxy cuts engineered for longevity.</p></div>
-              <div class="pillar"><h3>Visual Identity Systems</h3><p>Minimalist typography, vector iconography, and high-contrast colorways designed with intent.</p></div>
-            </div>
+          <div class="casro-gallery-item">
+            <img src="../assets/images/2.png" alt="CASRO Look 02" class="casro-gallery-img" loading="lazy">
+            <div class="casro-gallery-caption"><span>LOOK 02</span><span>Graphic Back Print</span></div>
+          </div>
+          <div class="casro-gallery-item">
+            <img src="../assets/images/3.png" alt="CASRO Look 03" class="casro-gallery-img" loading="lazy">
+            <div class="casro-gallery-caption"><span>LOOK 03</span><span>Minimal Crest Hoodie</span></div>
+          </div>
+          <div class="casro-gallery-item">
+            <img src="../assets/images/4.png" alt="CASRO Look 04" class="casro-gallery-img" loading="lazy">
+            <div class="casro-gallery-caption"><span>LOOK 04</span><span>Structured Silhouette</span></div>
+          </div>
+          <div class="casro-gallery-item">
+            <img src="../assets/images/7.png" alt="CASRO Look 07" class="casro-gallery-img" loading="lazy">
+            <div class="casro-gallery-caption"><span>LOOK 07</span><span>Editorial Fit</span></div>
+          </div>
+          <div class="casro-gallery-item">
+            <img src="../assets/images/8.png" alt="CASRO Look 08" class="casro-gallery-img" loading="lazy">
+            <div class="casro-gallery-caption"><span>LOOK 08</span><span>Detail Close-Up</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════ CONTACT & INQUIRIES ═══════════════ -->
+    <!-- ═══════════════ BEHIND THE SCENES ═══════════════ -->
+    <section id="bts" class="section" aria-labelledby="bts-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label">07 / ATELIER INSIGHTS</span>
+          <h2 id="bts-heading" class="section-title">BEHIND THE SCENES<br>&amp; CRAFT.</h2>
+          <p class="section-subtitle">Behind every drop is weeks of sampling, screen print testing, and quality control.</p>
+        </header>
+        <div class="casro-grid-3">
+          <div class="casro-card reveal">
+            <span class="casro-card-num">INSIGHT 01</span>
+            <h3 class="casro-card-title">Precision Screen Printing</h3>
+            <p class="casro-card-text">Utilizing high-density plastisol and water-based ink blends for vibrant graphics that do not crack or fade.</p>
+          </div>
+          <div class="casro-card reveal">
+            <span class="casro-card-num">INSIGHT 02</span>
+            <h3 class="casro-card-title">Custom Woven Labels</h3>
+            <p class="casro-card-text">Every garment features custom woven satin neck tags and hem labels reinforcing brand authenticity.</p>
+          </div>
+          <div class="casro-card reveal">
+            <span class="casro-card-num">INSIGHT 03</span>
+            <h3 class="casro-card-title">Packaging &amp; Presentation</h3>
+            <p class="casro-card-text">Delivered in matte black frosted polybags with custom stickers and certificate of authenticity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ FUTURE VISION ═══════════════ -->
+    <section id="future" class="section" aria-labelledby="future-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label">08 / THE ROADMAP</span>
+          <h2 id="future-heading" class="section-title">FUTURE VISION &amp;<br>DIGITAL EXPERIENCES.</h2>
+          <p class="section-subtitle">Merging interactive web technologies with fashion drops.</p>
+        </header>
+        <div class="casro-grid-3">
+          <div class="casro-card reveal">
+            <span class="casro-card-num">ROADMAP 01</span>
+            <h3 class="casro-card-title">3D Interactive Showroom</h3>
+            <p class="casro-card-text">Upcoming WebGL and Three.js interactive 3D digital book and virtual fitting room.</p>
+          </div>
+          <div class="casro-card reveal">
+            <span class="casro-card-num">ROADMAP 02</span>
+            <h3 class="casro-card-title">Runway Video Releases</h3>
+            <p class="casro-card-text">High-definition video lookbooks and film presentations for new capsule launches.</p>
+          </div>
+          <div class="casro-card reveal">
+            <span class="casro-card-num">ROADMAP 03</span>
+            <h3 class="casro-card-title">Limited Drops &amp; E-Commerce</h3>
+            <p class="casro-card-text">Direct integrated digital checkout and exclusive invitation-only drop releases.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ CONTACT ═══════════════ -->
     <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
       <div class="container">
         <header class="section-header reveal">
